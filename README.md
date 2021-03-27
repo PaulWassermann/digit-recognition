@@ -1,6 +1,6 @@
 # digit-recognition
 
-This code allows to create and train a custom neural network to recognize handwritten digits.
+This code allows to create and train a custom neural network to recognize handwritten digits. The training data set is the MNIST database.
 
 ### Installation
 
