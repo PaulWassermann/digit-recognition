@@ -26,17 +26,15 @@ def ask_to_retrain(neural_network):
         ask_to_retrain(neural_network)
 
 
-def create_and_train(model=(784, 10), epochs=5):
+training_data, validation_data, test_data = data_loader.load_data_wrapper()
 
-    training_data, validation_data, test_data = data_loader.load_data_wrapper()
+training_data = list(training_data)
+test_data = list(test_data)
 
-    training_data = list(training_data)
-    test_data = list(test_data)
+nn = NeuralNetwork(model=[784, 100, 10])
+nn.train(training_data=training_data, evaluation_data=test_data, epochs=5)
 
-    nn = NeuralNetwork(model=model)
-    nn.train(training_data=training_data, evaluation_data=test_data, epochs=epochs)
-    
-    ask_to_retrain(nn)
+ask_to_retrain(nn)
 
 # nn = NeuralNetwork.load_parameters(filename="neural_network_parameters.ia")
 # print(100 * nn.evaluate(evaluation_data=test_data) / len(test_data), "%")
